@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="libs/lpsolve55j.jar"/>
+	<classpathentry kind="lib" path="libs/OSDEASolver-v0.287-sources.jar"/>
+	<classpathentry kind="lib" path="libs/OSDEASolver-v0.287-f.jar"/>
+	<classpathentry kind="lib" path="libs/commons-lang3-3.1.jar"/>
+	<classpathentry kind="lib" path="libs/commons-math3-3.2.jar"/>
+	<classpathentry kind="lib" path="libs/swt.jar"/>
+	<classpathentry kind="lib" path="libs/poi-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="libs/poi-ooxml-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="libs/poi-ooxml-schemas-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="libs/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="libs/xbean.jar"/>
+	<classpathentry kind="lib" path="libs/org.eclipse.core.commands_3.6.2.v20130123-162658.jar"/>
+	<classpathentry kind="lib" path="libs/org.eclipse.equinox.common_3.6.100.v20120522-1841.jar"/>
+	<classpathentry kind="lib" path="libs/org.eclipse.jface_3.8.102.v20130123-162658.jar"/>
+	<classpathentry kind="lib" path="libs/org.eclipse.osgi_3.8.2.v20130124-134944.jar"/>
+	<classpathentry kind="lib" path="libs/org.eclipse.ui.workbench_3.104.0.v20130204-164612.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

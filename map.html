@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<style type="text/css">
+html {
+	height: 100%
+}
+
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0
+}
+
+#map_canvas {
+	height: 100%
+}
+
+.labels {
+	color: black;
+	background-color: white;
+	font-family: "Lucida Grande", "Arial", sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+	width: 40px;
+	border: 1px solid black;
+	white-space: nowrap;
+}
+</style>
+<script type="text/javascript"
+	src="http://maps.googleapis.com/maps/api/js?v=3&amp;sensor=false"></script>
+<script type="text/javascript" src="markerwithlabel.js"></script>
+
+<script type="text/javascript">
+	var map;
+	var infowindow;
+	var markersArray = [];
+	function initialize() {
+		var myOptions = {
+			center : new google.maps.LatLng(38.26, 23.63),
+			zoom : 6,
+			mapTypeId : google.maps.MapTypeId.HYBRID
+		};
+		map = new google.maps.Map(document.getElementById("map_canvas"),
+				myOptions);
+	}
+	
+	function addMarker(rank, code, name, area, c1, c2, te, lat, lon) {
+		var marker = new MarkerWithLabel({
+			position : new google.maps.LatLng(lat, lon),
+			map : map,
+			icon : 'nature.png',
+			labelContent : rank,
+			labelAnchor : new google.maps.Point(20, 50),
+			labelClass : "labels", // the CSS class for the label
+			labelStyle : {
+				opacity : 0.75
+			},
+			rank : rank
+		});
+
+		google.maps.event.addListener(marker, 'click', function() {
+			var contentString = '<div id="content">' + '<div id="siteNotice">'
+					+ '</div>' + '<h2 id="firstHeading" class="firstHeading">'
+					+ name + '</h2>' + '<div id="bodyContent">' 
+					+ '<p>Area (ha): '+area+'</p>'
+					+ '<p>Rank: '+ rank +'</p>'
+					+ '<p>TE: '+te+'</p>'
+					+ '<p>C1: '+c1+', C2: '+c2+'</p>'
+					+ '</div>' + '</div>';
+			if (infowindow) {
+				infowindow.close();
+			}
+			infowindow = new google.maps.InfoWindow({
+				content : contentString,
+				maxWidth : 200
+			});
+			infowindow.open(map, marker);
+		});
+		markersArray.push(marker);
+	}
+	function deleteOverlays() {
+		if (markersArray) {
+			for (i in markersArray) {
+				markersArray[i].setMap(null);
+			}
+			markersArray.length = 0;
+		}
+	}
+</script>
+</head>
+<body onload="initialize()">
+	<div id="map_canvas" style="width: 100%; height: 100%"></div>
+</body>
+</html>
